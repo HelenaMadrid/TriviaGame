@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
-<body class="bg-dark text-white">
+<body>
    <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
              <!--
           - Video needs to be muted, since Chrome 66+ will not autoplay video with sound.
@@ -20,7 +20,7 @@
         <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
           
     </video>
-    <div class="container border border-info">
+    <div class="container border border-info bg-dark text-white align-middle my-5" id="container">
 
         <div class="row my-4">
         <h1 class="text-center col-12 my-4">TRIVIA GAME</h1>
@@ -37,25 +37,25 @@
 
         <div class="row my-4">
             <div class="col-3"></div>
-            <button id="option-one" class=" text-center col-6 border border-white option">a</button>
+            <button id="option-one" class=" text-center col-6 option">a</button>
             <div class="col-3"></div>
         </div>
 
         <div class="row my-4">
                 <div class="col-3"></div>
-            <button  id="option-two" class=" text-center col-6 border border-white option">b</button>
+            <button id="option-two" class=" text-center col-6 option">b</button>
             <div class="col-3"></div>
         </div>
 
         <div class="row my-4">
                 <div class="col-3"></div>
-            <button id="option-three" class=" text-center col-6 border border-white option">c</button>
+            <button id="option-three" class=" text-center col-6 option">c</button>
             <div class="col-3"></div>
         </div>
 
         <div class="row my-4">
                 <div class="col-3"></div>
-            <button id="option-four" class=" text-center col-6 border border-white option">d</button>
+            <button id="option-four" class=" text-center col-6 option">d</button>
             <div class="col-3"></div>
         </div>
     </div>
