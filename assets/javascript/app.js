@@ -20,12 +20,14 @@ $(document).ready(function () {
         console.log(number);
         $("#show-number").attr("class", "text-white");
 
-        //if (number === 0) {
-          //unansweredCounter++;
+        if (number === 0) {
+            unansweredCounter++;
+            clockRunning = false;
+            clearInterval(secondsLeft);
          // console.log(unansweredCounter);
           //reset();
           //questions.One.AnswerIncorrect();
-        //}
+        }
     }
     function startOver(){
         reset();
@@ -351,7 +353,6 @@ $(document).ready(function () {
                     console.log(userAnswer.val());
                     if (userAnswer.val() === questions.Four.correctAnswer) {
                         console.log("correct");
-                        reset();
                         correctCounter++;
                         console.log("Counter: " + correctCounter);
                         //questions.Five.thirtySeconds();
@@ -434,7 +435,6 @@ $(document).ready(function () {
                     console.log(userAnswer.val());
                     if (userAnswer.val() === questions.Five.correctAnswer) {
                         console.log("correct");
-                        reset();
                         correctCounter++;
                         console.log("Counter: " + correctCounter);
                         //questions.Six.thirtySeconds();
@@ -517,7 +517,6 @@ $(document).ready(function () {
                     console.log(userAnswer.val());
                     if (userAnswer.val() === questions.Six.correctAnswer) {
                         console.log("correct");
-                        reset();
                         correctCounter++;
                         console.log("Counter: " + correctCounter);
                         //questions.Seven.thirtySeconds();
@@ -600,7 +599,6 @@ $(document).ready(function () {
                     console.log(userAnswer.val());
                     if (userAnswer.val() === questions.Seven.correctAnswer) {
                         console.log("correct");
-                        reset();
                         correctCounter++;
                         console.log("Counter: " + correctCounter);
                         //questions.Eight.thirtySeconds();
@@ -683,7 +681,6 @@ $(document).ready(function () {
                     console.log(userAnswer.val());
                     if (userAnswer.val() === questions.Eight.correctAnswer) {
                         console.log("correct");
-                        reset();
                         correctCounter++;
                         console.log("Counter: " + correctCounter);
                         //questions.Nine.thirtySeconds();
@@ -766,7 +763,6 @@ $(document).ready(function () {
                     console.log(userAnswer.val());
                     if (userAnswer.val() === questions.Nine.correctAnswer) {
                         console.log("correct");
-                        reset();
                         correctCounter++;
                         console.log("Counter: " + correctCounter);
                         //questions.Ten.thirtySeconds();
@@ -849,7 +845,6 @@ $(document).ready(function () {
                     console.log(userAnswer.val());
                     if (userAnswer.val() === questions.Ten.correctAnswer) {
                         console.log("correct");
-                        reset();
                         correctCounter++;
                         console.log("Counter: " + correctCounter);
                         //questions.results();
