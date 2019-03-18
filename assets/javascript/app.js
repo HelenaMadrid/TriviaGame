@@ -1,12 +1,15 @@
 //var questions = ["What's my name?", "how old am I?", "what's my pet's name"];
 //var option
-//var qNumber = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty"];
+var qNumber = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 
-var number = 31;
+var number = 10;
+var countNextQ=3;
 var secondsLeft;
+var nextQuestion;
 var correctCounter=0;
 var incorrectCounter=0;
-var unansweredCounter;
+var unansweredCounter=0;
+var clockRunning = false;
 
 var question=$("#question");
 var optionOne=$("#option-one");
@@ -19,17 +22,20 @@ function decrement(){
     $("#show-number").text(number);
     console.log(number);
     $("#show-number").attr("class","text-white");
-    if (number === 0) {
-        alert("Time Up!");
-        reset();
+    
+    if(number === 0) {
+        unansweredCounter++;
     }
 }
 
 function reset(){
-    number = 31;
+    number = 10;
     secondsLeft;
 }
 
+function nextQ(){
+    countNextQ--;
+}
 
 var questions = {
     One:{
@@ -37,9 +43,11 @@ var questions = {
         answerOptions: ["Stone", "Rivers", "Snow", "Sand"],
         correctAnswer: "Sand",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
-
+            if (!clockRunning) {
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning = true;
+            }
             var opt1= this.answerOptions[0];
             console.log(opt1);
 
@@ -73,29 +81,64 @@ var questions = {
                 console.log(userAnswer.val());
                 if(userAnswer.val()===questions.One.correctAnswer){
                     console.log("correct");
-                    reset();
                     correctCounter++;
                     console.log("Counter: "+ correctCounter);
-                    questions.Two.thirtySeconds();
+                    clockRunning=false;
+                    questions.OneAnswerCorrect();
+                    //questions.Two.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
                     incorrectCounter++;
-                    questions.Two.thirtySeconds();
+                    //questions.Two.thirtySeconds();
+                    questions.OneAnswerIncorrect();
                 }
 
             });
 
         }
-    },   
+    },
+    OneAnswerCorrect: function(){
+        clockRunning=false;
+        clearInterval(secondsLeft);
+        $("#show-number").text(number);
+        question.html("<h3>Correct! Well done!</h3><br><img src='https://images.immediate.co.uk/volatile/sites/3/2019/02/1-2-ac324ad.jpg?quality=45&resize=620,413'>");
+        optionOne.hide();
+        optionTwo.hide();
+        optionThree.hide();
+        optionFour.hide();
+        //nextQuestion=setTimeout(questions.Two.thirtySeconds, 3000);
+        questions.Two.thirtySeconds();
+    },
+
+    OneAnswerIncorrect: function(){
+        clockRunning=false;
+        clearInterval(secondsLeft);
+        $("#show-number").text(number);
+        question.html("<h3>Nope!</h3><p>The correct answer was "+questions.One.correctAnswer+".</p><br><img src='https://images.immediate.co.uk/volatile/sites/3/2019/02/1-2-ac324ad.jpg?quality=45&resize=620,413'>");
+        
+        
+        optionOne.hide();
+        optionTwo.hide();
+        optionThree.hide();
+        optionFour.hide();
+
+
+        //nextQuestion=setTimeout(3000);
+        questions.Two.thirtySeconds();
+    },
     
     Two:{
         question: "2. How did Daenerys Targaryen eventually hatch her dragon eggs?",
         answerOptions: ["In a lightning storm", "In a funeral pyre", "In a fireplace", "In a frozen cave"],
         correctAnswer: "In a funeral pyre",
         thirtySeconds: function(){
+            if (!clockRunning) {
+            reset();
             clearInterval(secondsLeft);
             secondsLeft = setInterval(decrement, 1000);
+            clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -111,6 +154,11 @@ var questions = {
 
             question.text(questions.Two.question);
 
+            optionOne.show();
+            optionTwo.show();
+            optionThree.show();
+            optionFour.show();
+
             optionOne.text(opt1);
             optionOne.attr("value", opt1)
 
@@ -123,6 +171,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+
             $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
@@ -133,6 +182,11 @@ var questions = {
                     reset();
                     correctCounter++;
                     console.log("Counter: "+ correctCounter);
+                    questions.Three.thirtySeconds();
+                }
+                if (number === 0) {
+                    unansweredCounter++;
+                    reset();
                     questions.Three.thirtySeconds();
                 }
                 else{
@@ -151,8 +205,12 @@ var questions = {
         answerOptions: ["Valar GoGo or 'all men must dance'", "Valar Morghulis or 'all men must die'", "Valar Rohnas or 'all men must live'", "Valar Dohaeris or 'all men must serve'"],
         correctAnswer: "Valar Dohaeris or 'all men must serve'",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -208,8 +266,12 @@ var questions = {
         answerOptions: ["Weirdwood", "Wildfire", "Valyrian Steel", "Snowballs"],
         correctAnswer: "Valyrian Steel",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -265,8 +327,12 @@ var questions = {
         answerOptions: ["Ghost", "Nymeria", "Lady", "Summer"],
         correctAnswer: "Lady",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -322,8 +388,12 @@ var questions = {
         answerOptions: ["Death", "Memorie loss", "Uncontrollable laughter", "Blindness"],
         correctAnswer: "Blindness",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -379,8 +449,12 @@ var questions = {
         answerOptions: ["Knowledge of poisons", "Pride in drawing blood first", "Nighttime attacks", "Ruby-colored armor"],
         correctAnswer: "Knowledge of poisons",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -436,8 +510,12 @@ var questions = {
         answerOptions: ["Fire", "Dragonglass", "Blue Ice", "Obsidian"],
         correctAnswer: "Dragonglass",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -493,8 +571,12 @@ var questions = {
         answerOptions: ["Three", "Four", "Two", "Five"],
         correctAnswer: "Four",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -550,8 +632,12 @@ var questions = {
         answerOptions: ["Wights", "Walkers", "Zombie", "Claws"],
         correctAnswer: "Wights",
         thirtySeconds: function(){
-            clearInterval(secondsLeft);
-            secondsLeft = setInterval(decrement, 1000);
+            if (!clockRunning) {
+                reset();
+                clearInterval(secondsLeft);
+                secondsLeft = setInterval(decrement, 1000);
+                clockRunning=true;
+            }
 
             var opt1= this.answerOptions[0];
             console.log(opt1);
@@ -603,9 +689,12 @@ var questions = {
     },
 
     results: function (){
+        clockRunning=false;
+        clearInterval(secondsLeft);
         question.text("All done, here's how you did!");
-        optionOne.html("<p>"+correctCounter+"</p>");
-        optionTwo.html("<p>"+incorrectCounter+"</p>");
+        optionOne.text("");
+        optionOne.append("<p>Correct Answers: "+correctCounter+"</p>");
+        optionTwo.append("<p>Incorrect Answers: "+incorrectCounter+"</p>");
 
     }
 }
