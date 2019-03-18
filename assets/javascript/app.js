@@ -4,6 +4,9 @@
 
 var number = 31;
 var secondsLeft;
+var correctCounter=0;
+var incorrectCounter=0;
+var unansweredCounter;
 
 var question=$("#question");
 var optionOne=$("#option-one");
@@ -63,6 +66,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -70,10 +74,14 @@ var questions = {
                 if(userAnswer.val()===questions.One.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Two.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Two.thirtySeconds();
                 }
 
             });
@@ -115,6 +123,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -122,10 +131,14 @@ var questions = {
                 if(userAnswer.val()===questions.Two.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Three.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Three.thirtySeconds();
                 }
 
             });
@@ -167,6 +180,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -174,10 +188,14 @@ var questions = {
                 if(userAnswer.val()===questions.Three.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Four.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Four.thirtySeconds();
                 }
 
             });
@@ -219,6 +237,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -226,10 +245,14 @@ var questions = {
                 if(userAnswer.val()===questions.Four.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Five.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Five.thirtySeconds();
                 }
 
             });
@@ -271,6 +294,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -278,10 +302,14 @@ var questions = {
                 if(userAnswer.val()===questions.Five.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Six.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Six.thirtySeconds();
                 }
 
             });
@@ -323,6 +351,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -330,10 +359,14 @@ var questions = {
                 if(userAnswer.val()===questions.Six.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Seven.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Seven.thirtySeconds();
                 }
 
             });
@@ -375,6 +408,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -382,10 +416,14 @@ var questions = {
                 if(userAnswer.val()===questions.Seven.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Eight.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Eight.thirtySeconds();
                 }
 
             });
@@ -395,8 +433,8 @@ var questions = {
 
     Eight:{
         question: "8. The Night King was created using a dagger made of:",
-        answerOptions: ["Valyrian Steel", "Dragonglass", "Blue Ice", "Obsidian"],
-        correctAnswer: "Knowledge of poisons",
+        answerOptions: ["Fire", "Dragonglass", "Blue Ice", "Obsidian"],
+        correctAnswer: "Dragonglass",
         thirtySeconds: function(){
             clearInterval(secondsLeft);
             secondsLeft = setInterval(decrement, 1000);
@@ -427,6 +465,7 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
@@ -434,10 +473,14 @@ var questions = {
                 if(userAnswer.val()===questions.Eight.correctAnswer){
                     console.log("correct");
                     reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
                     questions.Nine.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Nine.thirtySeconds();
                 }
 
             });
@@ -446,9 +489,9 @@ var questions = {
     },
 
     Nine:{
-        question: "8. The Night King was created using a dagger made of:",
-        answerOptions: ["Valyrian Steel", "Dragonglass", "Blue Ice", "Obsidian"],
-        correctAnswer: "Knowledge of poisons",
+        question: "9. How many arrows does Ramsay Bolton let loose at Rickon Stark?",
+        answerOptions: ["Three", "Four", "Two", "Five"],
+        correctAnswer: "Four",
         thirtySeconds: function(){
             clearInterval(secondsLeft);
             secondsLeft = setInterval(decrement, 1000);
@@ -465,7 +508,7 @@ var questions = {
             var opt4= this.answerOptions[3];
             console.log(opt4);
 
-            question.text(questions.Eight.question);
+            question.text(questions.Nine.question);
 
             optionOne.text(opt1);
             optionOne.attr("value", opt1)
@@ -479,26 +522,96 @@ var questions = {
             optionFour.text(opt4);
             optionFour.attr("value", opt4);
 
+            $(".option").off("click");
             $(".option").on("click", function (){
                 var userAnswer=$(this);
         
                 console.log(userAnswer.val());
-                if(userAnswer.val()===questions.Eight.correctAnswer){
+                if(userAnswer.val()===questions.Nine.correctAnswer){
                     console.log("correct");
                     reset();
-                    questions.Nine.thirtySeconds();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
+                    questions.Ten.thirtySeconds();
                 }
                 else{
                     console.log("wrong");
+                    incorrectCounter++;
+                    questions.Ten.thirtySeconds();
                 }
 
             });
 
         }
     },
+
+    Ten:{
+        question: "10. Dead creatures revived by White Walkers are known as:",
+        answerOptions: ["Wights", "Walkers", "Zombie", "Claws"],
+        correctAnswer: "Wights",
+        thirtySeconds: function(){
+            clearInterval(secondsLeft);
+            secondsLeft = setInterval(decrement, 1000);
+
+            var opt1= this.answerOptions[0];
+            console.log(opt1);
+
+            var opt2= this.answerOptions[1];
+            console.log(opt2);
+
+            var opt3= this.answerOptions[2];
+            console.log(opt3);
+
+            var opt4= this.answerOptions[3];
+            console.log(opt4);
+
+            question.text(questions.Ten.question);
+
+            optionOne.text(opt1);
+            optionOne.attr("value", opt1)
+
+            optionTwo.text(opt2);
+            optionTwo.attr("value", opt2);
+
+            optionThree.text(opt3);
+            optionThree.attr("value", opt3);
+
+            optionFour.text(opt4);
+            optionFour.attr("value", opt4);
+
+            $(".option").off("click");
+            $(".option").on("click", function (){
+                var userAnswer=$(this);
+        
+                console.log(userAnswer.val());
+                if(userAnswer.val()===questions.Ten.correctAnswer){
+                    console.log("correct");
+                    reset();
+                    correctCounter++;
+                    console.log("Counter: "+ correctCounter);
+                    questions.results();
+                }
+                else{
+                    console.log("wrong");
+                    incorrectCounter++;
+                    questions.results();
+                }
+
+            });
+
+        }
+    },
+
+    results: function (){
+        question.text("All done, here's how you did!");
+        optionOne.html("<p>"+correctCounter+"</p>");
+        optionTwo.html("<p>"+incorrectCounter+"</p>");
+
+    }
 }
 
 questions.One.thirtySeconds();
+
 
 
 
