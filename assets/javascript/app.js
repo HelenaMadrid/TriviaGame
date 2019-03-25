@@ -24,46 +24,40 @@ $(document).ready(function () {
         if (number === 0) {
             unansweredCounter++;
             numberQuestion++;
-            clockRunning = false;
-            clearInterval(secondsLeft);
 
             switch (numberQuestion) {
                 case 1:
-                    questions.Two.thirtySeconds();
+                    questions.One.AnswerIncorrect();
                     break;
                 case 2:
-                    questions.Three.thirtySeconds();
+                    questions.Two.AnswerIncorrect();
                     break;
                 case 3:
-                    questions.Four.thirtySeconds();
+                    questions.Three.AnswerIncorrect();
                     break;
                 case 4:
-                    questions.Five.thirtySeconds();
+                    questions.Four.AnswerIncorrect();
                     break;
                 case 5:
-                    questions.Six.thirtySeconds();
+                    questions.Five.AnswerIncorrect();
                     break;
                 case 6:
-                    questions.Seven.thirtySeconds();
+                    questions.Six.AnswerIncorrect();
                     break;
                 case 7:
-                    questions.Eight.thirtySeconds();
+                    questions.Seven.AnswerIncorrect();
                     break;
                 case 8:
-                    questions.Nine.thirtySeconds();
+                    questions.Eight.AnswerIncorrect();
                     break;
                 case 9:
-                    questions.Ten.thirtySeconds();
+                    questions.Nine.AnswerIncorrect();
                     break;
                 case 10:
-                    questions.results();
+                    questions.Ten.AnswerIncorrect();
                     break;
 
             }
-
-            // console.log(unansweredCounter);
-            //reset();
-            //questions.One.AnswerIncorrect();
         }
     }
     function startOver() {
@@ -145,15 +139,12 @@ $(document).ready(function () {
                         correctCounter++;
                         numberQuestion++;
                         console.log("Counter: " + correctCounter);
-                        //clockRunning=false;
                         questions.One.AnswerCorrect();
-                        //questions.Two.thirtySeconds();
                     }
                     else {
                         console.log("wrong");
                         incorrectCounter++;
                         numberQuestion++;
-                        //questions.Two.thirtySeconds();
                         questions.One.AnswerIncorrect();
                     }
 
@@ -163,19 +154,17 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='https://thefashioncrow.files.wordpress.com/2016/05/meeting_in_dorn_jaime_myrcella.jpg' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/Dorne.jpg' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Two.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.One.correctAnswer + ".</p><br><img src='https://thefashioncrow.files.wordpress.com/2016/05/meeting_in_dorn_jaime_myrcella.jpg' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.One.correctAnswer + ".</p><br><img src='assets/images/Dorne.jpg' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Two.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
@@ -231,7 +220,6 @@ $(document).ready(function () {
                         correctCounter++;
                         numberQuestion++;
                         console.log("Counter: " + correctCounter);
-                        //questions.Three.thirtySeconds();
                         questions.Two.AnswerCorrect();
                     }
                     else {
@@ -239,7 +227,6 @@ $(document).ready(function () {
                         incorrectCounter++;
                         numberQuestion++;
                         questions.Two.AnswerIncorrect();
-                        //questions.Three.thirtySeconds();
                     }
 
                 });
@@ -249,19 +236,17 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='https://pa1.narvii.com/6227/002d80e5ee251df03d2131cc33daf63de05a8bc7_hq.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/funeral-pyre.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Three.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Two.correctAnswer + ".</p><br><img src='https://pa1.narvii.com/6227/002d80e5ee251df03d2131cc33daf63de05a8bc7_hq.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Two.correctAnswer + ".</p><br><img src='assets/images/funeral-pyre.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Three.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
@@ -333,7 +318,7 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='https://media1.tenor.com/images/0846eb162a5923ddc1c704cf7f521381/tenor.gif?itemid=12106922' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/valar.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Four.thirtySeconds, 3000);
                 //questions.Two.thirtySeconds();
@@ -342,7 +327,7 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Three.correctAnswer + ".</p><br><img src='https://media1.tenor.com/images/0846eb162a5923ddc1c704cf7f521381/tenor.gif?itemid=12106922' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Three.correctAnswer + ".</p><br><img src='assets/images/valar.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Four.thirtySeconds, 3000);
                 //questions.Two.thirtySeconds();
@@ -417,19 +402,17 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='https://images.immediate.co.uk/volatile/sites/3/2019/02/1-2-ac324ad.jpg?quality=45&resize=620,413' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/valyrian-steel.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Five.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Four.correctAnswer + ".</p><br><img src='https://images.immediate.co.uk/volatile/sites/3/2019/02/1-2-ac324ad.jpg?quality=45&resize=620,413' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Four.correctAnswer + ".</p><br><img src='assets/images/valyrian-steel.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Five.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
@@ -501,19 +484,17 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='https://media.vanityfair.com/photos/59751bbae3e3375c6a06ec49/master/w_690,c_limit/lady.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/lady.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Six.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Five.correctAnswer + ".</p><br><img src='https://media.vanityfair.com/photos/59751bbae3e3375c6a06ec49/master/w_690,c_limit/lady.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Five.correctAnswer + ".</p><br><img src='assets/images/lady.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Six.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
@@ -588,7 +569,6 @@ $(document).ready(function () {
                 question.html("<h3>Correct! Well done!</h3><br><img src='https://media.giphy.com/media/ItEZ0kz23px6w/giphy.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Seven.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
@@ -597,7 +577,6 @@ $(document).ready(function () {
                 question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Six.correctAnswer + ".</p><br><img src='https://media.giphy.com/media/ItEZ0kz23px6w/giphy.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Seven.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
@@ -669,19 +648,17 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='http://i.imgur.com/UKeDkF0.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/Prince-Oberyn-Martell.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Eight.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Seven.correctAnswer + ".</p><br><img src='http://i.imgur.com/UKeDkF0.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Seven.correctAnswer + ".</p><br><img src='assets/images/Prince-Oberyn-Martell.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Eight.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
@@ -756,7 +733,6 @@ $(document).ready(function () {
                 question.html("<h3>Correct! Well done!</h3><br><img src='https://media0.giphy.com/media/3o85xlO10JSub49oiI/giphy.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Nine.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
@@ -765,7 +741,6 @@ $(document).ready(function () {
                 question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Eight.correctAnswer + ".</p><br><img src='https://media0.giphy.com/media/3o85xlO10JSub49oiI/giphy.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Nine.thirtySeconds, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
@@ -837,7 +812,7 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='https://media.vanityfair.com/photos/59a5d09a98ea7f027d30ee14/master/w_690,c_limit/RICKON.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/RICKON.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Ten.thirtySeconds, 3000);
                 //questions.Two.thirtySeconds();
@@ -846,7 +821,7 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Nine.correctAnswer + ".</p><br><img src='https://media.vanityfair.com/photos/59a5d09a98ea7f027d30ee14/master/w_690,c_limit/RICKON.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Nine.correctAnswer + ".</p><br><img src='assets/images/RICKON.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.Ten.thirtySeconds, 3000);
                 //questions.Two.thirtySeconds();
@@ -921,19 +896,17 @@ $(document).ready(function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Correct! Well done!</h3><br><img src='https://steamuserimages-a.akamaihd.net/ugc/849347241498889444/38C503D666338AA570644618AEA3A4A716963D19/' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Correct! Well done!</h3><br><img src='assets/images/wights.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.results, 3000);
-                //questions.Two.thirtySeconds();
             },
             AnswerIncorrect: function () {
                 clockRunning = false;
                 clearInterval(secondsLeft);
                 $("#show-number").text(number);
-                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Ten.correctAnswer + ".</p><br><img src='https://steamuserimages-a.akamaihd.net/ugc/849347241498889444/38C503D666338AA570644618AEA3A4A716963D19/' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
+                question.html("<h3>Nope!</h3><p>The correct answer was " + questions.Ten.correctAnswer + ".</p><br><img src='assets/images/wights.gif' class='col-xl-6 col-lg-6 col-md-6 col-sm-6'>");
                 hide();
                 nextQuestion = setInterval(questions.results, 3000);
-                //questions.Two.thirtySeconds();
             },
         },
 
